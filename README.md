@@ -41,7 +41,7 @@ Tenha instalado:
 
 Para android studio e java jdk, deve definir corretamente as variaveis de ambiente no windows
 
-1. Clone o projeto e acesse a pasta focus-app
+1. Clone o projeto e acesse a pasta fokus-app
 
 2. Instale as dependencias
 
