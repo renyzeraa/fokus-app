@@ -5,7 +5,7 @@ interface TimerProps {
 }
 
 export function Timer({ totalSeconds }: TimerProps) {
-    const date = new Date(totalSeconds * 1000 * 60)
+    const date = new Date(totalSeconds * 1000)
         .toLocaleTimeString('pt-BR',
             { minute: "2-digit", second: "2-digit" }
         )
