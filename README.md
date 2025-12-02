@@ -38,6 +38,10 @@ Aplicativo para definir um período de foco e descanso feito em React Native
 
 <img width="342" height="661" alt="Image" src="https://github.com/user-attachments/assets/2e109d0e-c68f-4a45-ac6d-65903ce6534a" />
 
+<img width="307" height="601" alt="Image" src="https://github.com/user-attachments/assets/75ed0f33-c67f-4e96-b190-41f63cfc99a9" />
+
+<img width="284" height="596" alt="Image" src="https://github.com/user-attachments/assets/62b8940f-bb66-441e-bf8b-335b775db9a6" />
+
 ## Como rodar projeto (windows)
 
 Tenha instalado:
