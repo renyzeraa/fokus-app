@@ -26,6 +26,9 @@ Aplicativo para definir um período de foco e descanso feito em React Native
 -   A criação e configuração do arquivo \_layout.jsx para gerenciar a navegação.
 -   A estrutura de roteamento baseada em arquivos.
 -   A personalização do comportamento de navegação, como remover o header de uma tela.
+-   A implementação navegação drawer no expo-router com dependências específicas.
+-   A criação e configuração de novas páginas e rotas no sistema de navegação baseado em arquivos.
+-   A utilização do SafeAreaView para respeitar áreas seguras em dispositivos.
 
 ## Layout
 

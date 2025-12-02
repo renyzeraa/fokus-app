@@ -1,9 +1,13 @@
 import { FocusButton } from "@/components/focus-button";
 import { Footer } from "@/components/footer";
-import { navigate } from "expo-router/build/global-state/routing";
+import { router } from "expo-router";
 import { Image, StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
+  function navigateToPomodoro() {
+    router.navigate('/pomodoro')
+  }
+
   return (
     <View style={styles.container}>
       <Image source={require('../assets/images/logo.png')}></Image>
@@ -17,7 +21,7 @@ export default function Index() {
           </Text>
         </Text>
         <Image source={require('../assets/images/home.png')}></Image>
-        <FocusButton title='Quero iniciar!' onPress={() => navigate('/pomodoro')} />
+        <FocusButton title='Quero iniciar!' onPress={navigateToPomodoro} />
       </View>
       <Footer />
     </View>
