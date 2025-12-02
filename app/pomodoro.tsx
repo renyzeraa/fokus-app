@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer";
 import { IconPause, IconPlay } from "@/components/icons";
 import { Timer } from "@/components/timer";
 import { useRef, useState } from "react";
-import { Image, ImageSourcePropType, StyleSheet, View } from "react-native";
+import { Image, ImageSourcePropType, ScrollView, StyleSheet, View } from "react-native";
 
 export interface PomodoroItem {
     id: string;
@@ -75,37 +75,43 @@ export default function Pomodoro() {
     }
 
     return (
-        <View
-            style={styles.container}
-        >
-            <Image source={timerType.image} />
-            <View style={styles.actions}>
-                <View style={styles.context}>
-                    {pomodoro.map((item) => {
-                        const active = item.id === timerType.id
-                        return (
-                            <ActionButton
-                                key={item.id}
-                                active={active}
-                                onPress={() => toggleTimerType(item)}
-                                description={item.description}
-                            />
-                        )
-                    })}
+        <ScrollView contentContainerStyle={styles.inner}>
+            <View
+                style={styles.container}
+            >
+                <Image source={timerType.image} />
+                <View style={styles.actions}>
+                    <View style={styles.context}>
+                        {pomodoro.map((item) => {
+                            const active = item.id === timerType.id
+                            return (
+                                <ActionButton
+                                    key={item.id}
+                                    active={active}
+                                    onPress={() => toggleTimerType(item)}
+                                    description={item.description}
+                                />
+                            )
+                        })}
+                    </View>
+                    <Timer totalSeconds={seconds} />
+                    <FocusButton
+                        title={timerRunning ? 'Pausar' : 'Começar'}
+                        icon={timerRunning ? <IconPause /> : <IconPlay />}
+                        onPress={toggleTimer}
+                    />
                 </View>
-                <Timer totalSeconds={seconds} />
-                <FocusButton
-                    title={timerRunning ? 'Pausar' : 'Começar'}
-                    icon={timerRunning ? <IconPause /> : <IconPlay />}
-                    onPress={toggleTimer}
-                />
-            </View>
-            <Footer />
-        </View >
+                <Footer />
+            </View >
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
+    inner: {
+        gap: 40,
+        alignItems: "center",
+    },
     container: {
         flex: 1,
         justifyContent: "center",
