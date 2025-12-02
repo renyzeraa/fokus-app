@@ -3,14 +3,15 @@ import { Pressable, StyleSheet, Text } from "react-native";
 interface FocusButtonProps {
     onPress: VoidFunction
     title: string
-    icon?: () => React.JSX.Element
+    icon?: React.JSX.Element
+    outline?: boolean
 }
 
-export function FocusButton({ onPress, title, icon: Icon }: FocusButtonProps) {
+export function FocusButton({ onPress, title, icon: Icon, outline }: FocusButtonProps) {
     return (
-        <Pressable style={styles.button} onPress={onPress}>
-            {Icon && <Icon />}
-            <Text style={styles.buttonText}>{title}</Text>
+        <Pressable style={[styles.button, outline && styles.outlineButton]} onPress={onPress}>
+            {Icon}
+            <Text style={[styles.buttonText, outline && styles.outlineButtonText]}>{title}</Text>
         </Pressable>
     )
 }
@@ -30,5 +31,13 @@ const styles = StyleSheet.create({
         color: '#021123',
         fontWeight: 'bold',
         fontSize: 18
+    },
+    outlineButton: {
+        backgroundColor: 'transparent',
+        borderColor: '#B872FF',
+        borderWidth: 2
+    },
+    outlineButtonText: {
+        color: '#B872FF',
     },
 })
