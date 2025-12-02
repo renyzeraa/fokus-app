@@ -8,10 +8,6 @@ import { TaskItem } from "../task-item";
 export default function Tasks() {
     const { deleteTask, toggleTaskCompleted, tasks } = useTaskContext()
 
-    function handleEdit() {
-
-    }
-
     function addNewTask() {
         router.navigate('/add-task')
     }
@@ -28,7 +24,7 @@ export default function Tasks() {
                                 completed={!!item.completed}
                                 text={item.description}
                                 onPressDelete={() => deleteTask(item.id)}
-                                onPressEdit={handleEdit}
+                                onPressEdit={() => router.navigate(`/edit-task/${item.id}` as any)}
                                 onToggleComplete={() => toggleTaskCompleted(item.id)}
                             />
                         )}

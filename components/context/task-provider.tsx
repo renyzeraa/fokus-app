@@ -8,6 +8,7 @@ interface TasksProviderProps {
     addTask: (description: string) => void
     toggleTaskCompleted: (id: number) => void
     deleteTask: (id: number) => void
+    updateTask: (id: number, newDescription: string) => void
 }
 
 export interface Task {
@@ -41,6 +42,17 @@ export function TasksProvider({ children }: any) {
         setTasks(oldState => oldState.filter(task => task.id !== id))
     }
 
+    const updateTask = (id: number, newDescription: string) => {
+        setTasks(oldState =>
+            oldState.map(t => {
+                if (t.id === id) {
+                    return { ...t, description: newDescription }
+                }
+                return t
+            })
+        )
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             const jsonValue = await AsyncStorage.getItem(TASKS_STORAGE_KEY);
@@ -66,7 +78,7 @@ export function TasksProvider({ children }: any) {
     }, [tasks, isLoaded])
 
     return (
-        <TaskContext.Provider value={{ tasks, addTask, toggleTaskCompleted, deleteTask }}>
+        <TaskContext.Provider value={{ tasks, addTask, toggleTaskCompleted, deleteTask, updateTask }}>
             {children}
         </TaskContext.Provider>
     )
