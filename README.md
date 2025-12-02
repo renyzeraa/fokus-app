@@ -22,6 +22,10 @@ Aplicativo para definir um período de foco e descanso feito em React Native
 -   A importância de usar uma biblioteca como React Native SVG para manipular SVGs no React Native.
 -   A instalar bibliotecas no Expo usando npx expo install.
 -   A ajustar dinamicamente ícones com base no estado do timer, melhorando a interatividade.
+-   A implementação da navegação entre telas usando o expo-router no React Native.
+-   A criação e configuração do arquivo \_layout.jsx para gerenciar a navegação.
+-   A estrutura de roteamento baseada em arquivos.
+-   A personalização do comportamento de navegação, como remover o header de uma tela.
 
 ## Layout
 

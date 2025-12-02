@@ -3,13 +3,13 @@ import { Pressable, StyleSheet, Text } from "react-native";
 interface FocusButtonProps {
     onPress: VoidFunction
     title: string
-    icon: () => React.JSX.Element
+    icon?: () => React.JSX.Element
 }
 
 export function FocusButton({ onPress, title, icon: Icon }: FocusButtonProps) {
     return (
         <Pressable style={styles.button} onPress={onPress}>
-            <Icon />
+            {Icon && <Icon />}
             <Text style={styles.buttonText}>{title}</Text>
         </Pressable>
     )
